@@ -1,0 +1,36 @@
+---
+version: '3'
+services:
+
+  aerospike4:
+    container_name: aerospike4
+    image: aerospike/aerospike-server-enterprise:latest
+    volumes:
+      - .:/etc/aerospike
+      - "./aerospike.conf:/etc/aerospike/aerospike.conf"
+      - "./features.conf:/etc/aerospike/features.conf"
+
+    ports:
+      - "3000:3000"
+
+
+
+  aerospike-esp-outbound:
+
+      container_name: aerospike-esp-outbound
+      image: aerospike/aerospike-esp-outbound:2.1.1
+      volumes:
+           - "./aerospike-esp-outbound.yml:/etc/aerospike-esp-outbound/aerospike-esp-outbound.yml"
+
+
+
+      ports:
+        - "8901:8901"
+
+
+  esp-catch:
+    container_name: esp-catch
+    image: cloudslayer/esp-catcher:latest
+    ports:
+        - "3001:3001"
+

@@ -1,0 +1,33 @@
+service:
+  port:
+    - 8901
+    - 9901
+  manage:
+    port: 8902
+
+logging:
+  enable-console-logging: true
+format:
+  mode: json
+# Destinations
+destinations:
+
+  nodeapp:
+    urls:
+      - http://esp-catch:3001/
+    protocol: HTTP_1_1
+    headers:
+      send-digest-header: true
+    health-check:
+      healthy-threshold: 1
+
+    http-success-status-codes:
+        - 200
+
+
+
+port-based-config:
+  8901:
+    routing:
+      mode: static-multi-destination
+      destinations: nodeapp
