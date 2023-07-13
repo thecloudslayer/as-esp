@@ -1,12 +1,12 @@
 # as-esp
 
-## Step 1: 
+### Step 1: 
 
 ```npm install ```
 
 
 
-## Step 2: 
+### Step 2: 
 Build esp-catcher on your local machine. change cloudslayer to your docker hub name.
 
 ```cd endpoint ```
@@ -15,14 +15,16 @@ Build esp-catcher on your local machine. change cloudslayer to your docker hub n
 
 
 
-## Step 3:
+### Step 3:
  Go back to root folder. 
+ 
 ```cd .. ```
 
 ```docker compose up```
 
 
 
-## Step 4:
+### Step 4:
  Pass in Data
+ 
 ```node write.js```
